@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Padel Coach AI — Validación externa · 10 casos</title>
+<style>
+body{margin:0;background:#0d1117;color:#f2f5f7;font-family:Arial,Helvetica,sans-serif}
+header{position:sticky;top:0;background:#0d1117;border-bottom:1px solid #2a3441;padding:14px 20px;z-index:5}
+main{max-width:1050px;margin:auto;padding:24px}
+.intro,.case{background:#151b23;border:1px solid #2a3441;border-radius:14px;padding:22px;margin-bottom:22px}
+h1{margin:0 0 8px} h2{margin:12px 0}
+.muted{color:#aab4bf}
+.case-head{display:flex;justify-content:space-between;gap:10px}
+.badge{background:#202a36;color:#9bdcff;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:bold}
+.num{color:#aab4bf;font-size:13px}
+.scenario{line-height:1.65;font-size:17px;margin:14px 0 20px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.formgrid{grid-template-columns:1fr}}
+label{display:block;color:#aab4bf;font-size:13px;margin-top:12px}
+input,textarea,select{width:100%;box-sizing:border-box;margin-top:6px;background:#1b2430;color:#f2f5f7;border:1px solid #2a3441;border-radius:9px;padding:10px;font:inherit}
+textarea{min-height:85px}
+.actions{position:sticky;bottom:0;background:#0d1117;border-top:1px solid #2a3441;padding:12px 20px;text-align:center}
+button{background:#7bd389;color:#07110a;border:0;border-radius:9px;padding:11px 16px;font-weight:bold;cursor:pointer;margin:4px}
+button.secondary{background:#26313d;color:#f2f5f7}
+</style>
+</head>
+<body>
+<header><strong>🎾 Padel Coach AI · Validación externa · 10 casos</strong></header>
+<main>
+<section class="intro">
+<h1>10 situaciones tácticas completas</h1>
+<p class="muted">Esta versión reducida contiene 10 situaciones representativas escritas directamente en la página.</p>
+<div class="formgrid">
+<label>Evaluador<input id="testerName" placeholder="Nombre o identificador"></label>
+<label>Nivel / experiencia<input id="testerLevel" placeholder="Entrenador profesional, monitor, jugador competición..."></label>
+</div>
+
+<div style="margin-top:14px;padding:12px;border:1px solid #4b4323;background:#2c2918;color:#ffe69b;border-radius:8px">
+<strong>Configuración del administrador:</strong> antes de publicar en GitHub Pages, sustituye
+<code>PEGAR_AQUI_ENDPOINT</code> por el endpoint del servicio donde recibirás las respuestas.
+</div>
+
+</section>
+<form id="evaluationForm">
+<section class="case" id="case-1">
+      <div class="case-head">
+        <span class="badge">DEFENSA</span>
+        <span class="num">Situación 1 de 10</span>
+      </div>
+      <h2>Globo o salida agresiva en punto de break</h2>
+      <div class="scenario">Segundo set. Vais 5-4 a favor, 30-40. Estáis restando.<br><br>Tú juegas en el revés y eres diestro. Los dos rivales están en la red. Recibes una volea cruzada que rebota en pared de fondo y sale cómoda, aproximadamente a la altura de la cintura.<br><br>El jugador de revés rival está demasiado pegado a la red y durante el partido ha mostrado dificultades claras para retroceder. Tu globo es uno de tus mejores golpes. Tu salida de pared rápida también es buena.<br><br>Es punto de break y tienes tiempo para decidir.<br><br>¿Qué jugarías, hacia quién y con qué intención táctica?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_1_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_1_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_1_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_1_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_1_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_1_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_1_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_1_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_1_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_1_missing">
+        </label>
+      </div>
+    </section>
+<section class="case" id="case-3">
+      <div class="case-head">
+        <span class="badge">ATAQUE</span>
+        <span class="num">Situación 2 de 10</span>
+      </div>
+      <h2>Punto de oro con tentación de x3</h2>
+      <div class="scenario">Primer set. 4-4, punto de oro. Estáis al servicio.<br><br>Juegas en revés, diestro. Bandeja muy buena, víbora buena y x3 bueno pero no excelente. Cuando estás nervioso tiendes a precipitar el remate.<br><br>Tu compañero juega una volea profunda y el rival, presionado, deja un globo relativamente corto hacia el centro. Llegas bien colocado y los dos rivales empiezan a retroceder.<br><br>Pista normal, sin condiciones especialmente favorables para sacar la bola.<br><br>¿Qué golpe elegirías, hacia dónde y por qué?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_3_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_3_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_3_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_3_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_3_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_3_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_3_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_3_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_3_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_3_missing">
+        </label>
+      </div>
+    </section>
+<section class="case" id="case-4">
+      <div class="case-head">
+        <span class="badge">MOVIMIENTO</span>
+        <span class="num">Situación 3 de 10</span>
+      </div>
+      <h2>Subida tras globo del compañero</h2>
+      <div class="scenario">Segundo set. 2-3, 15-30. Estáis restando.<br><br>Tú juegas en revés. Los rivales tienen la red. Tu compañero, desde defensa, consigue tirar un globo excelente y profundo sobre el jugador de revés rival.<br><br>Ese rival tiene que retroceder bastante para jugar una bandeja. Sabemos que juega aproximadamente el 70% de sus bandejas cruzadas. Tu compañero, sin embargo, tiene tendencia a quedarse atrás después de tirar un buen globo.<br><br>Tú estás preparado para avanzar.<br><br>¿Qué haces tú en cuanto ves que el globo es bueno? ¿Qué zona cubres y qué le dices a tu compañero?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_4_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_4_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_4_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_4_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_4_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_4_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_4_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_4_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_4_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_4_missing">
+        </label>
+      </div>
+    </section>
+<section class="case" id="case-5">
+      <div class="case-head">
+        <span class="badge">ATAQUE</span>
+        <span class="num">Situación 4 de 10</span>
+      </div>
+      <h2>Rival adaptado a nuestra debilidad explotada</h2>
+      <div class="scenario">Tercer set. 5-5, 30-30. Estáis al servicio y tenéis la red.<br><br>Durante gran parte del partido habéis atacado al jugador de derecha porque defiende mal la pared. Ya se ha adaptado: está aproximadamente 1,5 metros más retrasado de lo habitual y espera que volváis a jugarle profundo.<br><br>El jugador de revés permanece más adelantado. Tú recibes una volea cómoda de media altura. Tienes muy buena volea cruzada, buena paralela y buena precisión al centro.<br><br>¿Dónde jugarías esta volea y qué quieres provocar en la siguiente bola?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_5_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_5_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_5_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_5_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_5_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_5_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_5_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_5_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_5_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_5_missing">
+        </label>
+      </div>
+    </section>
+<section class="case" id="case-8">
+      <div class="case-head">
+        <span class="badge">RESTO</span>
+        <span class="num">Situación 5 de 10</span>
+      </div>
+      <h2>Set point: neutralizar al sacador</h2>
+      <div class="scenario">Segundo set. Ganasteis el primero 6-4. Ahora vais 4-5, 30-40: set point para ellos.<br><br>Estás al resto en el lado de revés. El sacador rival está diagonalmente frente a ti y sube muy rápido después del saque. Su primera volea es excelente si recibe una devolución cómoda, pero sufre cuando la pelota le llega baja a los pies.<br><br>Su compañero tiene un remate excelente, por lo que los globos de resto hacia su zona os han hecho daño. Tu resto de revés es fiable; tu globo de resto es bueno, pero no excepcional.<br><br>El saque llega a tu revés y consigues contactar equilibrado.<br><br>¿Qué resto haces, hacia dónde y qué quieres provocar después?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_8_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_8_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_8_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_8_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_8_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_8_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_8_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_8_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_8_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_8_missing">
+        </label>
+      </div>
+    </section>
+<section class="case" id="case-9">
+      <div class="case-head">
+        <span class="badge">ADAPTACIÓN</span>
+        <span class="num">Situación 6 de 10</span>
+      </div>
+      <h2>La estrategia inicial dejó de funcionar</h2>
+      <div class="scenario">Tercer set. 3-3, 30-30. Estáis al servicio.<br><br>En el primer set funcionó muchísimo atacar al jugador de derecha rival. En el segundo se adaptaron.<br><br>Ahora el jugador de derecha se queda más atrás, el de revés cubre mucho más el centro, las bolas al centro las domina el de revés y cuando atacáis paralelo al de derecha ya está esperando. Además, cuando intentáis abrir demasiado el cruzado estáis fallando.<br><br>Tu compañero empieza a frustrarse y te dice: “No sé dónde jugarles ya”.<br><br>¿Qué cambio de estrategia propones para los próximos 2-3 puntos y qué objetivo persigues?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_9_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_9_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_9_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_9_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_9_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_9_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_9_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_9_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_9_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_9_missing">
+        </label>
+      </div>
+    </section>
+<section class="case" id="case-11">
+      <div class="case-head">
+        <span class="badge">NEVERA</span>
+        <span class="num">Situación 7 de 10</span>
+      </div>
+      <h2>Te están haciendo la nevera</h2>
+      <div class="scenario">Tercer set. 4-4, 30-30. Estáis al servicio.<br><br>Tú juegas en revés y eres el jugador más fuerte de vuestra pareja. Los rivales llevan dos juegos haciéndote la nevera: apenas recibes bolas y concentran todo sobre tu compañero de derecha.<br><br>Tu compañero empieza a perder confianza. Su globo está quedando corto y empieza a acelerar porque quiere escapar de la presión. Tú estás jugando bien, pero cada vez intervienes menos.<br><br>Cuando consigues tocar bola, los rivales la devuelven rápidamente hacia tu compañero.<br><br>¿Qué cambio de posición, dirección o patrón propones para romper la nevera sin desorganizar completamente la pareja?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_11_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_11_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_11_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_11_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_11_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_11_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_11_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_11_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_11_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_11_missing">
+        </label>
+      </div>
+    </section>
+<section class="case" id="case-16">
+      <div class="case-head">
+        <span class="badge">PAREJA</span>
+        <span class="num">Situación 8 de 10</span>
+      </div>
+      <h2>Compañero peor, pero su globo funciona</h2>
+      <div class="scenario">Cuartos de final. Tercer set, 5-5, 30-30. Estáis restando.<br><br>Tú juegas en revés y eres claramente el jugador más fuerte de la pareja. Tu compañero de derecha está teniendo un mal partido: falla voleas, deja bandejas cortas y acelera demasiado bajo presión.<br><br>Los rivales lo han detectado y juegan mucho hacia él. Sin embargo, hay un golpe suyo que está funcionando muy bien: el globo.<br><br>Tu compañero te dice: “Voy a empezar a pegarle más fuerte para que dejen de buscarme”.<br><br>¿Qué le respondes y qué patrón de pareja utilizarías para aprovechar su globo y aumentar tu participación ofensiva?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_16_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_16_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_16_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_16_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_16_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_16_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_16_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_16_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_16_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_16_missing">
+        </label>
+      </div>
+    </section>
+<section class="case" id="case-19">
+      <div class="case-head">
+        <span class="badge">APRENDIZAJE</span>
+        <span class="num">Situación 9 de 10</span>
+      </div>
+      <h2>Buena ejecución de una decisión arriesgada</h2>
+      <div class="scenario">Continuación del caso anterior.<br><br>El jugador ignora la recomendación conservadora, intenta el x3 desde una posición mala y la pelota sale por 3. Gana el punto.<br><br>Después le dice al Coach: “¿Ves? Te dije que podía sacarla”.<br><br>¿Cómo debería responder el Coach para distinguir correctamente entre calidad de decisión, calidad de ejecución y resultado?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_19_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_19_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_19_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_19_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_19_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_19_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_19_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_19_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_19_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_19_missing">
+        </label>
+      </div>
+    </section>
+<section class="case" id="case-20">
+      <div class="case-head">
+        <span class="badge">FATIGA</span>
+        <span class="num">Situación 10 de 10</span>
+      </div>
+      <h2>Tie-break 5-5 y jugador cansado</h2>
+      <div class="scenario">Final. Tercer set, tie-break 5-5. Estáis restando.<br><br>Tú juegas en revés y estás físicamente cansado. Tu globo cruzado es muy fiable; el paralelo es normal. Tu chiquita es buena y tu bajada de pared muy buena, pero cuando estás cansado tu precisión acelerando disminuye.<br><br>El rival de revés tiene excelente juego aéreo pero está cansado y sus bandejas empiezan a quedar más cortas. El de derecha tiene juego aéreo normal y está algo más cerca de la red.<br><br>El globo cruzado os ha permitido recuperar la red varias veces, pero el rival de revés ya empieza a anticiparlo. Tu compañero bloquea muy bien en transición.<br><br>¿Qué jugarías y cómo intentarías recuperar la red sin gastar de más?</div>
+
+      <div class="formgrid">
+        <label>Golpe / acción principal
+          <input name="case_20_action" placeholder="Ej. globo, víbora, cerrar centro...">
+        </label>
+        <label>Dirección / objetivo
+          <input name="case_20_direction" placeholder="Ej. cruzado al cuerpo, paralelo, centro...">
+        </label>
+        <label>Movimiento posterior / posición
+          <input name="case_20_movement" placeholder="Ej. subir juntos, retroceder...">
+        </label>
+        <label>Objetivo táctico
+          <input name="case_20_goal" placeholder="Ej. recuperar red, provocar bola débil...">
+        </label>
+      </div>
+
+      <label>Alternativas aceptables
+        <textarea name="case_20_alternatives" placeholder="Opcional"></textarea>
+      </label>
+      <label>Razonamiento
+        <textarea name="case_20_reasoning" placeholder="Explica brevemente tu decisión"></textarea>
+      </label>
+
+      <div class="formgrid">
+        <label>Confianza (1–5)
+          <select name="case_20_confidence">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>Dificultad táctica (1–5)
+          <select name="case_20_difficulty">
+            <option value=""></option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+        <label>¿Única decisión claramente superior?
+          <select name="case_20_unique">
+            <option value=""></option>
+            <option>Sí</option><option>No</option><option>Depende</option><option>Falta información</option>
+          </select>
+        </label>
+        <label>Dato adicional que cambiaría la recomendación
+          <input name="case_20_missing">
+        </label>
+      </div>
+    </section>
+</form>
+</main>
+<div class="actions">
+<button onclick="submitEvaluation()">Enviar evaluación</button>
+<button onclick="exportJSON()">Exportar JSON</button>
+<button class="secondary" onclick="exportCSV()">Exportar CSV</button>
+</div>
+<script>
+const SUBMISSION_ENDPOINT = "PEGAR_AQUI_ENDPOINT"; // Ej. Formspree: https://formspree.io/f/xxxxxxx
+
+function collect(){
+  const form=document.getElementById('evaluationForm');
+  const fd=new FormData(form);
+  const obj={};
+  for(const [k,v] of fd.entries()) obj[k]=v;
+  return {
+    tester:{name:document.getElementById('testerName').value,level:document.getElementById('testerLevel').value},
+    exportedAt:new Date().toISOString(),
+    answers:obj
+  };
+}
+function download(name,text,type){
+  const blob=new Blob([text],{type});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download=name;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function exportJSON(){
+  const data=collect();
+  download('padel_coach_external_validation_10_cases.json',JSON.stringify(data,null,2),'application/json');
+}
+function esc(v){return '"'+String(v??'').replaceAll('"','""')+'"';}
+function exportCSV(){
+  const data=collect();
+  const rows=[['field','value'].join(',')];
+  rows.push(['tester_name',esc(data.tester.name)].join(','));
+  rows.push(['tester_level',esc(data.tester.level)].join(','));
+  for(const [k,v] of Object.entries(data.answers)) rows.push([esc(k),esc(v)].join(','));
+  download('padel_coach_external_validation_10_cases.csv',rows.join('\n'),'text/csv');
+}
+
+async function submitEvaluation(){
+  const data = collect();
+
+  if(!SUBMISSION_ENDPOINT || SUBMISSION_ENDPOINT === "PEGAR_AQUI_ENDPOINT"){
+    alert("Falta configurar el endpoint de envío. Abre el archivo y sustituye PEGAR_AQUI_ENDPOINT por tu endpoint de Formspree o servicio equivalente.");
+    return;
+  }
+
+  try{
+    const btns = document.querySelectorAll("button");
+    btns.forEach(b => b.disabled = true);
+
+    const response = await fetch(SUBMISSION_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if(!response.ok){
+      throw new Error("HTTP " + response.status);
+    }
+
+    alert("Evaluación enviada correctamente. Gracias.");
+  }catch(err){
+    alert("No se pudo enviar la evaluación. Puedes exportar el JSON como respaldo. Error: " + err.message);
+  }finally{
+    document.querySelectorAll("button").forEach(b => b.disabled = false);
+  }
+}
+
+</script>
+</body>
+</html>
